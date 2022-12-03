@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastrar Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formProduto">
+    <ion-list class="ion-padding">
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input formControlName="nome" [(ngModel)]="nomeInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.nome">
+        <span class="msg-erro" *ngIf="nome.errors?.[erro.tipo] && (nome.dirty || nome.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding ion-margin-top">
+        <ion-label position="stacked">Descrição</ion-label>
+        <ion-input formControlName="descricao" [(ngModel)]="descInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.descricao">
+        <span class="msg-erro" *ngIf="descricao.errors?.[erro.tipo] && (descricao.dirty || descricao.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding ion-margin-top">
+        <ion-label position="stacked">Valor</ion-label>
+        <ion-input formControlName="valor" type="number" [(ngModel)]="valorInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.valor">
+        <span class="msg-erro" *ngIf="valor.errors?.[erro.tipo] && (valor.dirty || valor.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding ion-margin-top">
+        <ion-label position="stacked">Validade</ion-label>
+        <ion-input formControlName="validade" [(ngModel)]="validadeInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.validade">
+        <span class="msg-erro" *ngIf="validade.errors?.[erro.tipo] && (validade.dirty || validade.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+    </ion-list>
+  </form>
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col size="12">
+        <ion-button expand="block" class="ion-no-margin" (click)="salvar()">Cadastrar</ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="block" class="ion-no-margin" fill="outline" size="small" (click)="voltar()">Voltar</ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="block" class="ion-no-margin" fill="outline" size="small" (click)="limpar()">Limpar</ion-button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

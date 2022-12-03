@@ -1,0 +1,50 @@
+*{
+  box-sizing: border-box;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+ion-card {
+  display: flex;
+  flex-flow: column;
+  margin: 30px;
+}
+
+img{
+  display: flex;
+  align-self: center;
+  width: 50%;
+  height: 50%;
+}
+
+.msg-erro{
+  font-size: small;
+  color: red;
+  text-align: center;
+}
+
+.borda{
+  border: 1.75px solid var(--ion-color-primary);
+  border-radius: 1em;
+}
+
+.margem{
+  margin-bottom: 5px;
+}
+
+ion-note{
+  font-weight: 500;
+  text-align: center;
+
+  span{
+    color: var(--ion-color-primary);
+    font-weight: 700;
+    font-size: 1.15em;
+  }
+}

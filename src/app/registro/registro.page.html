@@ -1,0 +1,80 @@
+<ion-content>
+  <div class="ion-margin">
+    <ion-note>Registre-se</ion-note>
+  </div>
+
+  <form [formGroup]="formRegistro">
+    <ion-list class="ion-padding">
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input formControlName="nome" [(ngModel)]="nomeInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.nome">
+        <span class="msg-erro" *ngIf="nome.errors?.[erro.tipo] && (nome.dirty || nome.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">E-mail</ion-label>
+        <ion-input type="email" formControlName="email" [(ngModel)]="emailInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.email">
+        <span class="msg-erro" *ngIf="email.errors?.[erro.tipo] && (email.dirty || email.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">CPF</ion-label>
+        <ion-input formControlName="cpf" [(ngModel)]="cpfInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.cpf">
+        <span class="msg-erro" *ngIf="cpf.errors?.[erro.tipo] && (cpf.dirty || cpf.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Senha</ion-label>
+        <ion-input type="password" formControlName="senha" [(ngModel)]="senhaInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.senha">
+        <span class="msg-erro" *ngIf="senha.errors?.[erro.tipo] && (senha.dirty || senha.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Confirmar Senha</ion-label>
+        <ion-input type="password" formControlName="confirmaSenha" [(ngModel)]="confirmaSenhaInput"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let erro of mensagensErro.confirmaSenha">
+        <span class="msg-erro" *ngIf="confirmaSenha.errors?.[erro.tipo] && (confirmaSenha.dirty || confirmaSenha.touched)">
+          {{erro.aviso}}
+        </span>
+      </ng-container>
+
+    </ion-list>
+  </form>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="12">
+        <ion-button expand="block" class="ion-no-margin" (click)="salvar()">Registrar</ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="block" class="ion-no-margin" fill="outline" size="small">Voltar</ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="block" class="ion-no-margin" fill="outline" size="small" (click)="limpar()">Limpar</ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

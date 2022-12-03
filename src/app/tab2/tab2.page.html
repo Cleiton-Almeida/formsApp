@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Produtos
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="refresh()">
+        <ion-icon name="refresh-outline" color="primary" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row class="ion-justify-content-center">
+    <ion-button shape="round" class="ion-margin-top" (click)="adicionar()">Adicionar Produto</ion-button>
+  </ion-row>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6" *ngFor="let produto of listaProdutos">
+        <ion-card>
+          <ion-list lines="none">
+            <ion-item class="conteudo">
+              <ion-label>{{produto.nome}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{produto.descricao}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="preco">R$ {{produto.valor}}</ion-label>
+              <ion-button color="warning">
+                <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+            <ion-item>
+              <ion-label class="">Validade: {{produto.validade}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
